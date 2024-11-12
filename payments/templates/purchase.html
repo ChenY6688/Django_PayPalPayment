@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Purchase</title>
+</head>
+<body>
+
+    <h1>Product: {{ product.name }}</h1>
+    <p>Price: {{ product.price }}</p>
+    <p>Quantity: {{ product.quantity }}</p>
+
+    <form method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+        {% csrf_token %}
+        {{ paypal_form.render }}
+        <!-- <input type="image" name="submit" border="0"
+               src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+               alt="PayPal - The safer, easier way to pay online"> -->
+    </form>
+
+    <!-- {% for product in products %}
+
+    <p>{{  product.name }}</p>
+    
+    {% endfor %} -->
+
+</body>
+</html>
